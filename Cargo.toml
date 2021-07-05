@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Denis Kolodin <deniskolodin@gmail.com>"]
 edition = "2018"
 description = "Converts maps to vecs for serialization"
+repository = "https://github.com/deniskolodin/vectorize"
 license = "MIT"
 readme = "README.md"
 

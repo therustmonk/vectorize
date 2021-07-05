@@ -1,3 +1,5 @@
+pub mod bypass;
+
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use std::iter::FromIterator;
 
