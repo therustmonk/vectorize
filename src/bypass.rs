@@ -17,3 +17,22 @@ where
 {
     serde::Deserialize::deserialize(des)
 }
+
+#[cfg(test)]
+mod tests {
+    use serde::{de::DeserializeOwned, Deserialize, Serialize};
+    use std::fmt;
+
+    trait Requirement:
+        DeserializeOwned + Serialize + Clone + fmt::Debug + Sync + Send + 'static
+    {
+    }
+
+    trait ComplexSpec: Requirement {}
+
+    #[derive(Debug, Serialize, Deserialize)]
+    struct MyComplexType<T: ComplexSpec> {
+        #[serde(with = "super")] // = "vectorize::bypass"
+        inner: Option<T>,
+    }
+}
